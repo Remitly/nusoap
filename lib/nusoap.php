@@ -1040,7 +1040,7 @@ class nusoap_fault extends nusoap_base {
 	 * @param mixed $faultdetail detail, typically a string or array of string
 	 */
 	function nusoap_fault($faultcode,$faultactor='',$faultstring='',$faultdetail=''){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->faultcode = $faultcode;
 		$this->faultactor = $faultactor;
 		$this->faultstring = $faultstring;
@@ -1133,7 +1133,7 @@ class nusoap_xmlschema extends nusoap_base  {
 	 * @access   public
 	 */
 	function nusoap_xmlschema($schema='',$xml='',$namespaces=array()){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->debug('nusoap_xmlschema class instantiated, inside constructor');
 		// files
 		$this->schema = $schema;
@@ -2121,7 +2121,7 @@ class soapval extends nusoap_base {
 	 * @access   public
 	 */
 	function soapval($name='soapval',$type=false,$value=-1,$element_ns=false,$type_ns=false,$attributes=false) {
-		parent::nusoap_base();
+		parent::__construct();
 		$this->name = $name;
 		$this->type = $type;
 		$this->value = $value;
@@ -2213,7 +2213,7 @@ class soap_transport_http extends nusoap_base {
 	 * @access public
 	 */
 	function soap_transport_http($url, $curl_options = NULL, $use_curl = false){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->debug("ctor url=$url use_curl=$use_curl curl_options:");
 		$this->appendDebug($this->varDump($curl_options));
 		$this->setURL($url);
@@ -3630,7 +3630,7 @@ class nusoap_server extends nusoap_base {
 	 * @access   public
 	 */
 	function nusoap_server($wsdl=false){
-		parent::nusoap_base();
+		parent::__construct();
 		// turn on debugging?
 		global $debug;
 		global $HTTP_SERVER_VARS;
@@ -4653,7 +4653,7 @@ class wsdl extends nusoap_base {
 	 * @access public
 	 */
 	function wsdl($wsdl = '',$proxyhost=false,$proxyport=false,$proxyusername=false,$proxypassword=false,$timeout=0,$response_timeout=30,$curl_options=null,$use_curl=false){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->debug("ctor wsdl=$wsdl timeout=$timeout response_timeout=$response_timeout");
 		$this->proxyhost = $proxyhost;
 		$this->proxyport = $proxyport;
@@ -6578,7 +6578,7 @@ class nusoap_parser extends nusoap_base {
 	 * @access   public
 	 */
 	function nusoap_parser($xml,$encoding='UTF-8',$method='',$decode_utf8=true){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->xml = $xml;
 		$this->xml_encoding = $encoding;
 		$this->method = $method;
@@ -7256,7 +7256,7 @@ class nusoap_client extends nusoap_base  {
 	 * @access   public
 	 */
 	function nusoap_client($endpoint,$wsdl = false,$proxyhost = false,$proxyport = false,$proxyusername = false, $proxypassword = false, $timeout = 0, $response_timeout = 300, $portName = ''){
-		parent::nusoap_base();
+		parent::__construct();
 		$this->endpoint = $endpoint;
 		$this->proxyhost = $proxyhost;
 		$this->proxyport = $proxyport;
